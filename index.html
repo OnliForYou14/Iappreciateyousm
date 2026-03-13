@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Evana</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+padding:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#1a002f,#3b0066,#120022);
+font-family:'Poppins',sans-serif;
+overflow:hidden;
+color:white;
+}
+
+/* Floating hearts */
+
+.heart{
+position:absolute;
+font-size:20px;
+animation:float 8s linear infinite;
+opacity:0.7;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh) scale(0.5);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-10vh) scale(1.2);
+opacity:0;
+}
+}
+
+/* Card */
+
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+border-radius:20px;
+padding:40px;
+max-width:600px;
+text-align:center;
+box-shadow:0 0 30px rgba(255,0,200,0.2);
+animation:fadeIn 2s ease;
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:52px;
+margin-bottom:10px;
+color:#ffb3ff;
+}
+
+p{
+font-size:18px;
+line-height:1.6;
+opacity:0.9;
+}
+
+button{
+margin-top:25px;
+padding:12px 28px;
+border:none;
+border-radius:25px;
+font-size:16px;
+background:#ff4dff;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#ff1aff;
+transform:scale(1.05);
+}
+
+.hidden{
+display:none;
+margin-top:20px;
+font-size:18px;
+color:#ffd9ff;
+animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Evana</h1>
+
+<p>
+This little page exists for one reason — to remind you how much you are appreciated.
+<br><br>
+You are the best thing that has ever happened to me.
+You make my days lighter, my thoughts calmer, and somehow you quietly push me to become a better man.
+<br><br>
+Your kindness, your heart, and the way you exist so purely in this world…
+I admire all of it.
+</p>
+
+<button onclick="showMessage()">Click for something more</button>
+
+<div class="hidden" id="extra">
+I love you so much 
+Thank you for being in my life. 🤍
+</div>
+
+</div>
+
+<script>
+
+function showMessage(){
+document.getElementById("extra").style.display="block";
+}
+
+/* Floating hearts generator */
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💜";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*25)+"px";
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
